@@ -10,10 +10,10 @@ public class SnakeAndLadderGame{
 		while(player1 <= 100){
 			Random roll = new Random();
 			int dice = roll.nextInt(6) + 1;
-
 			Random options = new Random();
 			int opt = options.nextInt(3);
 
+			int previousPosition = player1;
 
 			switch(opt){
 				case 0:
@@ -29,10 +29,16 @@ public class SnakeAndLadderGame{
 						System.out.println("invaild");
 						break;
 			}
-			   if(player1 < 0){
-				   player1 = startPoint;
+			if(player1 > 100){
+				player1 = previousPosition;
+			}
+			if(player1 < 0){
+				player1 = startPoint;
+			}
+			if(player1 == 100){
+				break;
 			}
 		}
-		System.out.println("Hurrah! You have reached 100.");
+		System.out.println("Hurrah! You have reached 100." );
 	}
 }
